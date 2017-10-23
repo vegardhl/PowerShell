@@ -1,4 +1,6 @@
-﻿# Skriver ut alle aktive AD brukere
+﻿$SesjonADServer = New-PSSession -ComputerName '3badrgr1-psp2' -Credential 'vegard\administrator' 
+
+# Skriver ut alle aktive AD brukere
 Function Write-AdAktivBruker
 {
 	$brukere = Invoke-Command -Session $SesjonADServer `

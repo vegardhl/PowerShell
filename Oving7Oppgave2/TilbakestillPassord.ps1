@@ -1,5 +1,9 @@
 ﻿Function Set-AdBrukerPassord
 {
+
+     #Legger til verdi til sesjonen. lagt til selv.
+     $sesjonadserver = New-PSSession -ComputerName '3badrgr1-psp2' -Credential 'vegard\administrator'     
+
 	 # Hent brukere 
 	 $brukere = Invoke-Command -Session $sesjonadserver `
 	 -ScriptBlock {

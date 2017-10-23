@@ -14,6 +14,8 @@
 	 #Returnere det formatere brukernavnet    
 	 return $brukernavn
 } 
+
+$SesjonADServer = New-PSSession -ComputerName '3badrgr1-psp2' -Credential 'vegard\administrator'
 		
 Function Set-Brukernavn
 {
@@ -58,9 +60,8 @@ Function Set-Brukernavn
 	
 	 
 	 # Hent ut alle brukere
-	 $finnes = Invoke-Command -Session $SesjonADServer `
-	  -ScriptBlock {
-	  Get-ADUser -Filter *}
+	 $finnes = Invoke-Command -Session $SesjonADServer -ScriptBlock { Get-ADUser -Filter *}
+    #$finnes = Get-ADUser -Filter * #Lagt til selv
 		 
 	do{
 	 $finnes = $finnes | 
@@ -132,7 +133,7 @@ Function New-ADBruker
 	  -AsPlainText -Force 
 		
 	 # Forsøk å opprette AD bruker 
-	 Invoke-Command -Session $SesjonADServer -ScriptBlock {
+	 Invoke-Command -Session $SesjonADServer -ScriptBlock { #-Session $SesjonADServer
 	  try
 	  {    
 	   New-ADUser  `

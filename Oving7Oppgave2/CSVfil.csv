@@ -1,0 +1,4 @@
+Fornavn;Etternavn;OU;Passord;epost;
+Nils;Nilsen;OU=tesBrukere,DC=vegard,DC=local;Passord123;nils@epost.no;
+Kari;Nilsen;testBrukere,DC=vegard,DC=local;Passord123;kari@epost.no;
+Astrid;Nilsen;testBrukere,DC=vegard,DC=local;Passord123;astrid@epost.no;

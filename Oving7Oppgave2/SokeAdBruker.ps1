@@ -3,8 +3,7 @@
 	 param (
 	  [parameter(mandatory=$true)]
 	  [Object[]]$Objekt
-	 )
-		
+	 )		
 	
 	 # Legger til linjenummer på objektet  
 	 $Nummer = 1
@@ -39,6 +38,9 @@ Function Write-ADBruker
 		
 Function Find-ADBruker
 {
+     #Legger til verdi til sesjonen. lagt til selv.
+    $SesjonADServer = New-PSSession -ComputerName '3badrgr1-psp2' -Credential 'vegard\administrator' 
+     
      $Hjelp = 
 	 'Søk etter brukere. Velg en eller flere brukere
 	 Ved å skrive nummeret etterfulgt av komma. 
@@ -82,6 +84,7 @@ Function Find-ADBruker
 	  -and $SøkeTekst -eq 'f!')
 	  {            
 		   # Returnerer valgte brukere
+        #write "skriver ut valgte brukere: $ValgteBrukere"
 	   return $ValgteBrukere
 	  }
 	  elseif($SøkeTekst.Length -eq 2 `

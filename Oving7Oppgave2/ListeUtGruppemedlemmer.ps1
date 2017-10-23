@@ -1,6 +1,10 @@
 ﻿Function Get-AdBrukerGruppe
 {
-	 Write-Host "Henter brukere. . ." -ForegroundColor Cyan 
+	 
+    #Legger til verdi til sesjonen. lagt til selv.
+    $sesjonadserver = New-PSSession -ComputerName '3badrgr1-psp2' -Credential 'vegard\administrator'     
+    
+    Write-Host "Henter brukere. . ." -ForegroundColor Cyan 
 		
 	 $Brukere = Invoke-Command -Session $sesjonadserver `
 	 -script {

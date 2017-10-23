@@ -1,6 +1,10 @@
-﻿Function New-ADBrukerCSV 
+﻿#Henter inn scriptet NyAdBruker slik at jeg kan nå funksjonen set-Brukernavn
+. .\Desktop\PowerShell\Oving7Oppgave2\NyAdBruker.ps1
+
+Function New-ADBrukerCSV 
 {
-		
+		#Legger til verdi til sesjonen. lagt til selv.
+      $SesjonADServer = New-PSSession -ComputerName '3badrgr1-psp2' -Credential 'vegard\administrator' 
  do {
 	  # Dialogboks for å åpne CSV-fil 
 	  $csvFil = New-Object System.Windows.Forms.OpenFileDialog
@@ -37,7 +41,8 @@
 	  $brukernavn = $brukernavn.Trim() 
 	  # Opprett fullt navn ut fra fornavn og etternavn 
 	  $fulltNavn = "$fornavn $etternavn"
-		
+        
+        		
 	  # Opprett bruker 
 	  Invoke-Command -Session $SesjonADServer -ScriptBlock {
 	   Try {
